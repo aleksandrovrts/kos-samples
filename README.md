@@ -12,11 +12,11 @@ See [README.md](/hello_world/README.md) in hello_world folder
 
 ### Sample 3...
 
-See [README.md]/mqtt_subscriber/README.md in mqtt_subscriber folder
+See [README.md](/mqtt_subscriber/README.md) in mqtt_subscriber folder
 
 
 ### Sample 4...
 
-See [README.md]/mqtt_subscriber_echo/README.md in mqtt_subscriber_echo folder
+See [README.md](/mqtt_subscriber_echo/README.md) in mqtt_subscriber_echo folder
 
 
