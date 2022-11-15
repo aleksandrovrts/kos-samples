@@ -3,14 +3,15 @@
 
 On localhost machine run mqtt broker   
 ```
-cd mqtt
+cd ../mqtt_subscriber/mqtt
 docker-compose up -d
 ```
 ### Run
 
 Set in einit/src/init.yaml.in your local ip address and 18883 port (it forwarded via Docker) (for me its 10.5.20.23)...   
 ```
-- name: mosquitto.Subscriber
+# The `client` entity can call `server`.
+- name: echo.Client
   env:
     VFS_FILESYSTEM_BACKEND: client:@ROOTFS_ENTITY@
     VFS_NETWORK_BACKEND: client:kl.VfsNet
@@ -35,12 +36,10 @@ Build n run subscriber:
 /opt/KasperskyOS-Community-Edition-1.1.0.356/toolchain/bin/qemu-system-aarch64 -m 2048 -machine vexpress-a15,secure=on -cpu cortex-a72 -nographic -monitor none -smp 4 -net nic -net user -serial stdio -kernel build/einit/kos-qemu-image   
 ```
 
-After app launched you should see that client connected and subscribed [ScreenShot](/mqtt_subscriber/screens/1.png "Connected screen")   
+### Write numbers into broker   
 
-### Spam into broker   
+Client subscribed on `my/awesome/topic`..
 
-Client subscribed on `my/awesome/topic`... Let's spam there a bit.   
+Run from your local machine ` mosquitto_pub -h localhost -p 18883 -t 'my/awesome/topic' -m '<number>'` (require mosquitto_pub: apt-get install -y mosquitto-clients)   
 
-Run from your local machine `./mosquitto-spamer.sh` (require mosquitto_pub: apt-get install -y mosquitto-clients)   
-
-You should see something as [ScreenShot2](/mqtt_subscriber/screens/2.png "Spam screen")   
+You should see something as [ScreenShot1](/mqtt_subscriber_echo/screens/1.png "Spam screen")   

@@ -26,19 +26,13 @@ static nk_err_t Ping_impl(struct echo_Ping *self,
                           struct nk_arena *res_arena)
 {
     IPingImpl *impl = (IPingImpl *)self;
-    /**
-     * Increment value in client request by
-     * one step and include into result argument that will be
-     * sent to the client in the server response.
-     */
-    res->result = req->value + impl->step;
+    res->result = req->value;
+    fprintf(stderr, "[SERVER] RECV: %u\n", req->value);
+    
     return NK_EOK;
 }
 
-/**
- * IPing object constructor.
- * step is the number by which the input value is increased.
- */
+
 static struct echo_Ping *CreateIPingImpl(rtl_uint32_t step)
 {
     /* Table of implementations of IPing interface methods. */
@@ -59,6 +53,8 @@ static struct echo_Ping *CreateIPingImpl(rtl_uint32_t step)
 /* Server entry point. */
 int main(void)
 {
+
+    fprintf(stderr, "Hello I'm server\n");
     NkKosTransport transport;
     ServiceId iid;
 
