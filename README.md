@@ -1,3 +1,6 @@
+## IMPORTANT
+**USE ONLY WITH AARCH64 SDK**
+
 ## BUILD IMAGE
 ### Sample 1...
 
