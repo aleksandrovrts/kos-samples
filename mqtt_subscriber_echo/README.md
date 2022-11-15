@@ -1,4 +1,4 @@
-## Mosquitto MQTT Subscriber Example (Sample 3)   
+## Mosquitto MQTT Subscriber Example (Sample 4)   
 ### Start MQTT Broker:   
 
 On localhost machine run mqtt broker   
